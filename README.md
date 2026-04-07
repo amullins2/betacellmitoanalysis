@@ -6,13 +6,6 @@ protein quantification in human pancreatic tissue from large-scale confocal
 images. Compares VDAC1 (mitochondrial mass) and MTCO1 (Complex IV) expression 
 between islet beta cells and extra-islet beta cells at single-cell resolution.
 
-## Key Findings
-- Extra-islet beta cells have **~2.4× higher mitochondrial mass** (VDAC1, p<0.0001)
-- Extra-islet beta cells show **lower MTCO1/VDAC1 ratio** (p=0.025), suggesting 
-  reduced Complex IV per mitochondrion
-- Extra-islet beta cells accumulate **more insulin** (p<0.0001), consistent 
-  with reduced secretory activity
-- Extra-islet beta cell density: **4.0 cells/mm²** (literature: 17.3 cells/mm²)
 
 ## Pipeline Overview
 
@@ -29,7 +22,6 @@ pip install pandas numpy matplotlib seaborn tifffile
 - **Channels**: CH1=VDAC1 (AF488), CH2=MTCO1 (AF647), 
                 CH3=Insulin (AF405), CH4=E-cadherin (AF568)
 - **Acquisition**: Zeiss LSM980, 20×, pixel size 0.1235 µm/px
-- **Size**: 31,413 × 46,902 pixels (~5.9 GB)
 
 ## Pipeline Steps
 
@@ -54,8 +46,8 @@ pip install pandas numpy matplotlib seaborn tifffile
 ```python
 # DBSCAN on insulin+ cell coordinates
 # eps=200px (~24.7µm), min_samples=10
-# 51 clusters detected → 2 ducts excluded (visual inspection)
-# Valid islets: 49
+# 51 clusters detected → 7 ducts excluded (visual inspection)
+# Valid islets: 44
 ```
 
 ### 4. Extra-Islet Beta Cell Identification
