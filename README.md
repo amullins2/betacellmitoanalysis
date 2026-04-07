@@ -89,11 +89,6 @@ pip install pandas numpy matplotlib seaborn tifffile
 | Min distance from islet | 150 µm | Excludes peri-islet beta cells |
 | Extra-islet isolation radius | 150 px | ~18.5 µm, excludes micro-clusters |
 
-## Hardware
-- Apple M4 Max MacBook Pro, 36 GB RAM
-- Metal GPU acceleration (Cellpose)
-- Full segmentation: ~34 minutes
-
 ## Citation
 If you use this pipeline, please cite:
 - Cellpose: Stringer et al., Nature Methods 2021
