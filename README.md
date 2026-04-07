@@ -65,10 +65,6 @@ pip install pandas numpy matplotlib seaborn tifffile
 ```python
 # Comparison: 49 per-islet means vs 20 individual extra-islet cells
 # Test: two-sided Mann-Whitney U
-# VDAC1:       p=1.27e-07 ***
-# MTCO1/VDAC1: p=2.50e-02 *
-# Insulin:     p=9.47e-08 ***
-```
 
 ## Output Files
 
