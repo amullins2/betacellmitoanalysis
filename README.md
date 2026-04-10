@@ -47,52 +47,16 @@ pip install pandas numpy matplotlib seaborn tifffile
 # DBSCAN on insulin+ cell coordinates
 # eps=200px (~24.7µm), min_samples=10
 # 51 clusters detected → 7 ducts excluded (visual inspection)
-# Valid islets: 44
+# Valid islets: 43
 ```
 
 ### 4. Extra-Islet Beta Cell Identification
 ```python
 # Multi-criteria filter:
-# - insulin_mean > 27.9 AU (islet 75th percentile)
 # - distance from nearest islet > 150 µm
 # - area: 1,232-7,787 px² (islet beta cell 10th-95th percentile)
-# - insulin contrast ratio > 4.0
-# - spatially isolated (no neighbour within 150px)
-# Candidates: 38 → 20 after manual validation
+# - spatially isolated
 ```
-
-### 5. Statistical Analysis
-```python
-# Comparison: 49 per-islet means vs 20 individual extra-islet cells
-# Test: two-sided Mann-Whitney U
-
-## Output Files
-
-| File | Description |
-|------|-------------|
-| `all_cells_raw.csv` | All 76,628 segmented cells with intensity measurements |
-| `all_cells_final.csv` | Cells with classification labels |
-| `FINAL_tissue_map.png` | Tissue overview with islet and extra-islet annotations |
-| `FINAL_violin_plots.png` | VDAC1/MTCO1/Insulin comparison figures |
-| `exemplar_extraislet_final_v2.png` | Exemplar extra-islet beta cell |
-| `manual_inspection_5ch.png` | Manual validation gallery |
-| `computational_methods.txt` | Full methods text for publication |
-
-## Key Parameters
-
-| Parameter | Value | Justification |
-|-----------|-------|---------------|
-| Cellpose diameter | 100 px | ~12.4 µm, appropriate for pancreatic cells at 20× |
-| DBSCAN eps | 200 px | ~24.7 µm max gap between adjacent islet beta cells |
-| DBSCAN min_samples | 10 | Minimum beta cells to define an islet |
-| Insulin threshold | 27.9 AU | 75th percentile of islet beta cell insulin (conservative) |
-| Min distance from islet | 150 µm | Excludes peri-islet beta cells |
-| Extra-islet isolation radius | 150 px | ~18.5 µm, excludes micro-clusters |
-
-## Citation
-If you use this pipeline, please cite:
-- Cellpose: Stringer et al., Nature Methods 2021
-- Granlund et al., Acta Diabetol 2024 (extra-islet beta cell density reference)
 
 ## Author
 Alana Mullins
